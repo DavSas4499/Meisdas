@@ -79,38 +79,10 @@
             color: #000;
         }
 
-        #card h2 {
-            font-size: 25px;
-            text-transform: uppercase;
-            leter-spacing: .5px;
-            margin-bottom: 10px;
-        }
-
-        #card p {
-            font-size: 20px;
-            font-family: 'Archivo Black', 'Archivo', sans-serif;
-            font-weight: normal;
-        }
-
-        #card button {
-            font-size: 40px;
-            padding: 0px;
+        button {
+            margin: 20px auto;
+            font-size: 30px;
             width: calc(100% / 2);
-        }
-
-        #card {
-            background-color: #FFF;
-            width: 400px;
-            cursor: pointer;
-            padding: 15px;
-            margin: 100px auto 0;
-            border: 3px solid #000;
-
-        }
-
-        .buttonGroup {
-            margin-top: 20px;
-            display: flex;
         }
 
         .icons {
@@ -120,7 +92,7 @@
             text-align: center;
             font-weight: normal;
             font-style: normal;
-            font-size: 120px;
+            font-size: 140px;
             display: inline-block;
             line-height: 1;
             text-transform: none;
@@ -151,24 +123,17 @@
                 <p class="plain-text" style="font-weight: bold;">My Profile</p>
             </div>
             <div class="column" style="border: 1px solid #000; width: 33.3%; align-items: center; height: 70px;" onclick="location.href='finder.html';">
-                <p class="plain-text" style="font-weight: bold; background-color: #14AD54;">Finder</p>
+                <p class="plain-text" style="font-weight: bold;">Finder</p>
             </div>
             <div class="column" style="border: 1px solid #000; width: 33.3%; align-items: center; height: 70px;" onclick="location.href='groups.html';">
-                <p class="plain-text" style="font-weight: bold;">My Groups</p>
+                <p class="plain-text" style="font-weight: bold; background-color: #14AD54;">My Groups</p>
             </div>
         </div>
         <div class="row">
             <div class="column" style="width:50%; margin: 0pt 60pt">
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-                <div id="card">
-                    <i id="icon" class="icons"></i>
-                    <h2 id="title"></h2>
-                    <p id="description"></p>
-                    <div class="buttonGroup">
-                        <button class="icons" onclick="nextCard()">close</button>
-                        <button class="icons" onclick="gotoSite()">check</button>
-                    </div>
-                </div>
+                <i id="icon" class="icons"></i>
+                <h2 style="text-align:center" id="title"></h2>
             </div>
         </div>
     </div>
@@ -177,44 +142,12 @@
 </html>
 
 <script>
-    card = document.getElementById('card');
-    title = document.getElementById('title');
-    description = document.getElementById('description');
     icon = document.getElementById('icon');
-    cardIndex = 0;
-    cards = [
-        { "Title": "Group 1", "Description": " - Meeting: once a week <br> - Mostly male <br>  - Computer Science", "Image": "computer" },
-        { "Title": "Group 2", "Description": " - Meeting: twice a week <br> - Mixed group <br>  - Philosophy", "Image": "emoji_food_beverage" },
-        { "Title": "Group 3", "Description": " - Meeting: once a week <br> - Mostly male <br>  - Computer Science", "Image": "history_edu" },
-        { "Title": "Group 4", "Description": " - Meeting: once a week <br> - Mostly male <br>  - Computer Science", "Image": "connect_without_contact" },
-        { "Title": "Group 5", "Description": " - Meeting: once a week <br> - Mostly male <br>  - Computer Science", "Image": "emoji_people" },
-        { "Title": "Group 6", "Description": " - Meeting: once a week <br> - Mostly male <br>  - Computer Science", "Image": "school" }
-    ];
-    function renderCard() {
-        if (cardIndex < cards.length) {
-            title.innerHTML = cards[cardIndex].Title;
-            description.innerHTML = cards[cardIndex].Description;
-            icon.innerHTML = cards[cardIndex].Image;
-            var shadow = "";
-            for (var i = cardIndex; i < cards.length - 1; i++) {
-                var val = (i - cardIndex + 1) * 10;
-                shadow += val + "px -" + val + "px 0 -3px #FFF, " + val + "px -" + val + "px #000";
-                if (i < cards.length - 2)
-                    shadow += ", "
-            }
-            card.style.boxShadow = shadow;
-        }
-        else
-            window.location.href = "nofound.html";
-    }
-
-    function nextCard() {
-        cardIndex += 1;
-        renderCard();
-    }
-
-    function gotoSite() {
-        window.location.href = "join.html?Title=" + cards[cardIndex].Title + "&Icon=" + cards[cardIndex].Image ;
-    }
-    renderCard();
+    title = document.getElementById('title');
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    titleText = urlParams.get('Title');
+    iconText = urlParams.get('Icon');
+    title.innerHTML = titleText;
+    icon.innerHTML = iconText;
 </script>
