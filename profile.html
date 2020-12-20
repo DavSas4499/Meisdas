@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        .space-row {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-evenly;
+        }
+
+        .center-row {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header {
+            background-color: #00519E;
+            color: #fff;
+            font-size: 24pt;
+            margin: 0pt;
+            padding: 15pt 5pt;
+            font-family: "Calibri";
+        }
+
+        .input {
+            color: black;
+            font-size: 14pt;
+            width: 100%;
+            font-family: "Calibri";
+        }
+
+        .plain-text {
+            color: black;
+            font-size: 24pt;
+            font-family: "Calibri";
+            text-align: center;
+            width: fit-content;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .settings-text {
+            color: black;
+            font-size: 24pt;
+            font-family: "Calibri";
+        }
+
+        .input {
+            height: 30px;
+            margin: 0pt 20pt;
+            align-self: center;
+        }
+
+        button {
+            margin: 20px auto;
+            font-size: 30px;
+            width: calc(100% / 2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="column">
+        <h1 class="header">Groepenzoecker</h1>
+        <div class="row">
+            <div class="column" style="border: 1px solid #000; width: 33.3%; align-items: center; height: 70px;"
+                onclick="location.href='profile.html';">
+                <p class="plain-text" style="font-weight: bold; background-color: #14AD54;">My Profile</p>
+            </div>
+            <div class="column" style="border: 1px solid #000; width: 33.3%; align-items: center; height: 70px;"
+                onclick="location.href='finder.html';">
+                <p class="plain-text" style="font-weight: bold;">Finder</p>
+            </div>
+            <div class="column" style="border: 1px solid #000; width: 33.3%; align-items: center; height: 70px;"
+                onclick="location.href='groups.html';">
+                <p class="plain-text" style="font-weight: bold;">My Groups</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column" style="width:50%; margin: 0pt 60pt">
+                <div class="row">
+                    <p class="settings-text">Screenname:</p>
+                    <input class="input" type="text" value="Admin">
+                </div>
+                <div class="row">
+                    <p class="settings-text">Password:</p>
+                    <input class="input" type="password" value="qwertz123">
+                </div>
+                <button onclick="location.href='finder.html';">Save</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
