@@ -104,16 +104,24 @@
             <div class="column" style="width:50%; margin: 0pt 60pt">
                 <div class="row">
                     <p class="settings-text">Screenname:</p>
-                    <input class="input" type="text" value="Admin">
+                    <input class="input" type="text" id="username">
                 </div>
                 <div class="row">
                     <p class="settings-text">Password:</p>
                     <input class="input" type="password" value="qwertz123">
                 </div>
-                <button onclick="location.href='finder.html';">Save</button>
+                <button onclick="doSave()">Save</button>
             </div>
         </div>
     </div>
 </body>
 
 </html>
+
+<script>
+    userInput = document.getElementById('username');
+    userInput.value = localStorage.getItem("HCIUsername");
+    function doSave() {
+        localStorage.setItem("HCIUsername", userInput.value);
+    }
+</script>

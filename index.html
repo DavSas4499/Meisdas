@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: #EEE;
+        font-family: 'Archivo', sans-serif;
+        color: #000;
+    }
+    .column{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .row{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .space-row{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+    }
+
+    .center-row{
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header{
+        background-color: #00519E;
+        color: #fff;
+        font-size: 24pt;
+        align-self: left;
+        padding: 15pt 5pt;
+        font-family:"Calibri";
+    }
+
+    .input{
+        color: black;
+        font-size: 14pt;
+        width: 100%;
+        font-family:"Calibri";
+    }
+
+    .plain-text{
+        color: black;
+        font-size: 14pt;
+        font-family:"Calibri";
+    }
+
+    .login-button{
+        font-size: 14pt;
+        width: 20%;
+        align-self: center;
+        margin-top: 40pt;
+        font-family:"Calibri";
+    }
+
+</style>
+
+</head>
+<body>
+    <div class="column">
+        <h1 class="header">Groepenzoecker</h1>
+        <div class="row">
+            <div class="column" style="width:70%;">
+                <p class="plain-text">Username:</p>
+                <input class="input" type="text" id="username">
+                <p class="plain-text">Password:</p>
+                <input class="input" type="password" id="password">
+                <button class="login-button" onclick="doLogin()">Login</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    userInput = document.getElementById('username');
+    function doLogin() {
+        localStorage.setItem("HCIUsername", userInput.value);
+        window.location.href = "finder.html";
+    }
+</script>
