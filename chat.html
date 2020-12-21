@@ -1,153 +1,155 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <style>
-        .column {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
+<style>      
+    body {
+        background: #EEE;
+    }
+
+    .column{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .row{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .space-row{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+    }
+
+    .center-row{
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+        padding-top: 5pt;
+    }
+
+    .start-row{
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 15pt;
+        padding-bottom: 15pt;
+    }
+
+    .header{
+        background-color: #00519E;
+        color: #fff;
+        font-size: 24pt;
+        margin: 0pt;
+        padding: 15pt 5pt;
+        font-family:"Calibri";
+    }
+
+    .input{
+        color: black;
+        font-size: 14pt;
+        width: 100%;
+        font-family:"Calibri";
+    }
+
+    .plain-text{
+        color: black;
+        font-size: 24pt;
+        font-family:"Calibri";
+        text-align: center;
+        width: fit-content;
+        border-radius:5px;
+        padding: 5px;
+    }
+
+    .settings-text{
+        color: black;
+        font-size: 24pt;
+        font-family:"Calibri";
+    }
+
+    .input{
+        height: 20px;
+        margin: 0pt 20pt;
+        align-self: center;
+    }
+
+    .groupname {
+    font-size: 20pt;
+    font-weight: bold;
+    font-family: "Calibri";
+    padding: 10pt;
+    border: 3px solid #00519E;
+    flex-grow: 2;
+    }
+
+    .button {
+        font-size: 24pt;
+        border: 2px solid #00519E;
+        padding-left: 10pt;
+        padding-right: 10pt;
+        margin-right: 15pt;
+    }
+
+    .textarea{
+       
+        height: 200px;
+        width: 350px;
+    }
+
+</style>
+<script>
+    $('select').select2({
+        minimumResultsForSearch: -1,
+        placeholder: function(){
+            $(this).data('placeholder');
         }
+    });
 
-        .row {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-        }
-
-        .space-row {
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: space-evenly;
-        }
-
-        .center-row {
-            display: flex;
-            flex-flow: row wrap;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .header {
-            background-color: #00519E;
-            color: #fff;
-            font-size: 24pt;
-            margin: 0pt;
-            padding: 15pt 5pt;
-            font-family: "Calibri";
-        }
-
-        .input {
-            color: black;
-            font-size: 14pt;
-            width: 100%;
-            font-family: "Calibri";
-        }
-
-        .plain-text {
-            color: black;
-            font-size: 24pt;
-            font-family: "Calibri";
-            text-align: center;
-            width: fit-content;
-            border-radius: 5px;
-            padding: 5px;
-        }
-
-        .settings-text {
-            color: black;
-            font-size: 24pt;
-            font-family: "Calibri";
-        }
-
-        .input {
-            height: 20px;
-            margin: 0pt 20pt;
-            align-self: center;
-        }
-
-
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #EEE;
-            font-family: 'Archivo', sans-serif;
-            color: #000;
-        }
-
-        button {
-            margin: 20px auto;
-            font-size: 30px;
-            width: calc(100% / 2);
-        }
-
-        .icons {
-            width: 100%;
-            padding: 20px;
-            font-family: 'Material Icons';
-            text-align: center;
-            font-weight: normal;
-            font-style: normal;
-            font-size: 140px;
-            display: inline-block;
-            line-height: 1;
-            text-transform: none;
-            letter-spacing: normal;
-            word-wrap: normal;
-            white-space: nowrap;
-            direction: ltr;
-            user-select: none;
-            /* Support for all WebKit browsers. */
-            -webkit-font-smoothing: antialiased;
-            /* Support for Safari and Chrome. */
-            text-rendering: optimizeLegibility;
-
-            /* Support for Firefox. */
-            -moz-osx-font-smoothing: grayscale;
-
-            /* Support for IE. */
-            font-feature-settings: 'liga';
-        }
-    </style>
+    function send(){
+        document.getElementById("chat").innerHTML += "You: " + document.getElementById("input").value + "<br/>";
+        document.getElementById("input").value = "";
+    }
+</script>
 </head>
-
 <body>
     <div class="column">
-        <h1 class="header">Groepenzoeker</h1>
+        <h1 class="header">Groepenzoecker</h1>
         <div class="row">
-            <div class="column" style="border: 1px solid #000; width: 33.3%; align-items: center; height: 70px;" onclick="location.href='profile.html';">
+            <div class="column" style="border: 1px solid #000; width: 33.3%; align-items: center; height: 70px;">
                 <p class="plain-text" style="font-weight: bold;">My Profile</p>
             </div>
-            <div class="column" style="border: 1px solid #000; width: 33.3%; align-items: center; height: 70px;" onclick="location.href='finder.html';">
+            <div class="column" style="border: 1px solid #000; width: 33.3%; align-items: center; height: 70px;">
                 <p class="plain-text" style="font-weight: bold;">Finder</p>
             </div>
-            <div class="column" style="border: 1px solid #000; width: 33.3%; align-items: center; height: 70px;" onclick="location.href='groups.html';">
+            <div class="column" style="border: 1px solid #000; width: 33.3%; align-items: center; height: 70px;">
                 <p class="plain-text" style="font-weight: bold; background-color: #14AD54;">My Groups</p>
             </div>
         </div>
-        <div class="row">
-            <div class="column" style="width:50%; margin: 0pt 60pt">
-                <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-                <i id="icon" class="icons"></i>
-                <h2 style="text-align:center" id="title"></h2>
-            </div>
+    
+        <div class="start-row">
+            <div class="button">&#8592</div>
+            <div class="groupname">Gruppe 1</div>
+        </div>
+        <div class="row">            
+            <div class="textarea" id="textarea" contenteditable="true">
+                P1: Hi!<br/> 
+                P2: Hello guys<br/>
+                P3: When is our next meeting?<br/>
+                P1: Tomorrow...<br/>
+                P3: Chill, I just asked<br/>
+                <span id="chat" style="color: #2ECCFA; float: right; text-align: right;"></span>
+             </div>
+        </div>
+        <div class="center-row">
+            <input id="input" style="width:305px;">
+            <button onclick="send()">&#10148</button>
         </div>
     </div>
 </body>
-
 </html>
-
-<script>
-    icon = document.getElementById('icon');
-    title = document.getElementById('title');
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    titleText = urlParams.get('Title');
-    iconText = urlParams.get('Icon');
-    title.innerHTML = titleText;
-    icon.innerHTML = iconText;
-</script>
